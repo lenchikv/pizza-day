@@ -1,0 +1,66 @@
+<style>
+div.colored {
+	background-color: #eb9316; 
+	text-align: center;
+}
+div.margined {
+	padding: 10px; 
+	text-align: center;
+}
+ul {
+	margin: 0; padding: 0; list-style-type: none; text-align: center;
+}
+li{
+	padding: 10px 10px;color: #fff; background-color: #303F9F;display: inline;"
+}
+table {
+	border: 1px solid #e3; margin: auto; width: 500px;
+}
+h2 {
+padding: 10px; color: #303F9F;
+}
+</style>
+<div  class="colored">
+<h2><center>By Users</center></h2>
+</div>
+{{#each adminOrdersTotal event_id}}
+<div class="margined">
+	<ul  >
+		{{#each details}}
+		<li><strong>{{name}} - ${{sum}}</strong></li>
+		{{/each}}
+	</ul>
+</div>
+<div class="margined">
+	<center><strong>Total - {{totalSum}}</strong></center>
+</div>	
+{{/each}}
+<div class="colored">
+<h2 ><center>All orders</center></h2>
+</div>
+	<table cellpadding=5px cellspacing=0>
+	  <tbody>
+		<tr>
+			<th>User</th>
+			<th>Title</th>
+			<th>Price, $</th>
+			<th>Quantity</th>
+		</tr>
+		{{#each userOrder event_id}}
+			<tr id="_id">
+				<td class="user">{{getUserName user_id}}</td>
+				<td class="item">{{item}}</td>
+				<td class="quantity"><center>{{quantity}}</center></td>
+				<td class="price"><center>{{price}}</center></td>
+			</tr>
+		{{/each}}
+		<tr>
+			<td></td>
+			<td></td>
+			<td><center>Total:</center></td>
+			<th><center>{{sumOrder event_id}}</center></th>
+		</tr>
+	  </tbody>	
+	</table>
+
+

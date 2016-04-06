@@ -1,0 +1,78 @@
+<template name="pizzaEvents">
+      {{#each pizzaEvents}}	
+     
+	<div class="panel panel-warning fade in window {{_id}}" id="{{_id}}">
+	  <div class="panel-heading">
+		<h2 class="panel-title">
+		   <span class="badge">{{statusText status}}</span> {{{startedDate started}}} 
+		  <button type="button" class="close closeX"><i class="fa fa-times"></i></button>
+		  <button type="button" class="close minimizeX" data-toggle="collapse"><span aria-hidden="true"><i class="fa fa-chevron-up minimizer"></i></span></button>
+		</h2>
+	  </div>
+	  <div class="panel-body panel-collapse collapse {{#if windowOpen status}}in{{/if}}" id="in{{_id}}">
+		<dl class="dl-horizontal">
+			<dt>Status</dt>
+			<dd>{{statusText status}}</dd>
+			<dt>Started</dt>
+			<dd>{{startedDate started}}</dd>
+			<dt>Major Holder</dt>
+			<dd>{{holder_name}}</dd>
+			<dt>Are you joining?</dt>
+				{{#if thisUser}}
+				 {{setCurrentStatus _id}}
+					<dd><strong>{{{isCheckJoined _id}}}</strong></dd>
+				{{else}}
+					<dd><strong>Log in to join pizza!</strong></dd>
+				{{/if}}
+		</dl>	
+		{{#if thisUser}}
+		
+		{{#if isStatusYes _id}}
+		
+		<h2><center>Your selection</center></h2>
+		{{> coupons}}					
+		{{> menu event_id = _id}}
+		<br />
+		<center><button type="button" class="btn btn-warning jsCheckOutUser" value="{{_id}}">Check out</button></center>
+		{{/if}}	
+		
+		{{#if isStatusOrder _id}}
+		<h2><center>Your order</center></h2>
+		{{itemsForUser}}
+			{{> userOrder event_id = _id user_id = thisUser.id}}
+		{{/if}}
+
+		{{#if isOwner _id}}
+		
+		<a data-toggle="collapse" href="#collapseOrders{{_id}}" aria-expanded="false" aria-controls="collapseOrders{{_id}}">
+			<span class="fa-stack fa-lg">
+			  <i class="fa fa-square-o fa-stack-2x"></i>
+			  <i class="fa fa-strikethrough fa-stack-1x"></i>
+			</span> Orders
+		</a>
+		<div class="collapse" id="collapseOrders{{_id}}">
+			{{> adminOrder event_id = _id}}
+			{{#if isOrdered status}}
+			<center>					
+			<form class="form-inline jsStatus">
+				<div class="form-group">
+					<label class="sr-only" for="event">Password</label>
+					<select id="event" name="status" class="form-control"> 
+						<option value="1" selected>Ordered</option>
+						<option value="2">Delivering</option>
+						<option value="3">Delivered</option>										
+					</select>
+				</div>
+				<button type="submit" class="btn btn-warning jsChangeEventStatus" value="{{_id}}">Change status</button>
+			</form>
+			<br />
+			<button type="button" class="btn btn-warning jsCheckOut" value="{{_id}}" id="checkOutButton">Check out</button>
+			</center>
+			{{/if}}
+		</div>
+		{{/if}}
+		{{/if}}
+	  </div>
+	</div>
+    {{/each}}	
+</template>

@@ -1,0 +1,22 @@
+<h2><center>Congratulations! You ordered:</center></h2>
+			<table border=1 cellpadding=5px cellspacing=0 style="margin: auto; width: 500px;">
+			  <tbody>
+				<tr>
+					<th>Title</th>
+					<th><center>Quantity</center></th>
+					<th><center>Price, $</center></th>
+				</tr>
+				{{#each userOrder event_id user_id}}
+					<tr id="_id">
+						<td class="item">{{item}}</td>
+						<td class="quantity"><center>{{quantity}}</center></td>
+						<td class="price"><center>{{price}}</center></td>
+					</tr>
+				{{/each}}
+				<tr>
+					<td></td>
+					<td><center>Total:</center></td>
+					<th><center>{{sumOrder event_id user_id}}</center></th>
+				</tr>
+			  </tbody>	
+			</table>

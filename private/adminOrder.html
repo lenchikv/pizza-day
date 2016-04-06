@@ -1,0 +1,42 @@
+<div style="background-color: #eb9316; text-align: center;">
+<h2 style="padding: 5px; color: #303F9F;"><center>By Users</center></h2>
+</div>
+{{#each adminOrdersTotal event_id}}
+<div style="text-align: center;">
+	<ul style="margin: 0; padding: 0; list-style-type: none; text-align: center;" >
+		{{#each details}}
+		<li style="padding: 5px 10px;color: #fff; background-color: #303F9F;display: inline;">{{getUserName user_id}} - {{#if statusYes status}}${{sum}}{{else}}N/A{{/if}}</li>
+		{{/each}}
+	</ul>
+</div>
+<div style="padding: 15px; text-align: center;">
+	<center><strong>Totally - {{totalSum}}</strong></center>
+</div>	
+{{/each}}
+<div style="background-color: #eb9316; text-align: center;">
+<h2 style="padding: 5px; color: #303F9F;"><center>All orders</center></h2>
+</div>
+	<table border=1 cellpadding=5px cellspacing=0 style="margin: auto; width: 500px;">
+	  <tbody>
+		<tr>
+			<th>User</th>
+			<th>Title</th>
+			<th>Quantity</th>
+			<th>Price, $</th>
+		</tr>
+		{{#each userOrder event_id}}
+			<tr id="_id">
+				<td class="user">{{getUserName user_id}}</td>
+				<td class="item">{{item}}</td>
+				<td class="quantity"><center>{{quantity}}</center></td>
+				<td class="price"><center>{{price}}</center></td>
+			</tr>
+		{{/each}}
+		<tr>
+			<td></td>
+			<td></td>
+			<td><center>Total:</center></td>
+			<th><center>{{sumOrder event_id}}</center></th>
+		</tr>
+	  </tbody>	
+	</table>

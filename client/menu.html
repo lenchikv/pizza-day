@@ -1,0 +1,30 @@
+<template name="menu">
+	<form class="form-inline formAddItem" name="addDishes">
+		<div class="form-group">
+			<label class="sr-only" for="itemN">Dish</label>
+			<select id="itemN" name="itemN" class="form-control"> 
+			{{#each menuItemsGroup}}
+				<option value="{{@index}}">{{title}} / ${{price}}</option>
+			{{/each}} 
+			</select>
+		</div>
+		<div class="form-group">
+			<input type='number' min='1' step='1' data-number-to-fixed='2' data-number-stepfactor='100' class="form-control" name="quantity" value="1" required />
+		</div>
+		<button type="submit" class="btn btn-warning jsAddItemToList" value="{{event_id}}">Get it!</button>
+	</form>	
+</template>
+
+
+<template name="coupons">
+	{{#if ifCoupon}}
+	<h3>We have free coupons for you!</h3>
+	<div class="list-group">
+	{{#each couponGroup}}
+			<a class="list-group-item" href="#"><i class="fa fa-gift fa-fw"></i> {{title}} (${{price}}) - availabble {{quantity}} </a>
+	{{/each}} 	
+	 </div>
+	 <br />
+	{{/if}}
+</template>
+

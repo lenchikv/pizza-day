@@ -1,0 +1,19 @@
+<template name="website_main">
+{{> sAlert}}
+    <div class="container">
+        <div class="row row-content row-main">	
+			<div class="col-xs-12 col-sm-6">
+				<h2>Users groups</h2>
+				{{> groups}}
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<h2>Events</h2>
+					{{> createPizzaEvent}}
+				<br />
+				<div id="eventDiv">
+					{{> pizzaEvents}}										
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

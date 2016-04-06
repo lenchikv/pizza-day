@@ -1,0 +1,37 @@
+<template name="createPizzaEvent">
+	{{#if thisUser}}
+	<a type="button" class="btn btn-warning btn-block jsCreateEvent" id="createEventButton"
+    href="#">Create new event</a>
+	
+	<form class="form jsFormCreateEvent">
+		<br />
+		<dl class="dl-horizontal">
+			<dt>Status</dt>
+			<dd>New</dd>
+			<dt>Date</dt>
+			<dd>{{date}}</dd>
+			<dt>Major Holder</dt>
+			<dd>{{thisUser.name}}</dd>
+			<dt>Groups</dt>
+			<dd>{{#each groups}}
+				<div class="checkbox">
+					<label>
+					  <input type="checkbox" class="jsGroups" name="groupsIn" id="{{_id}}" value="{{_id}}">{{title}}
+					</label>
+				</div>
+				{{/each}}
+			</dd>
+		</dl>
+		<center>
+			<button type="submit" class="btn btn-warning">Create event</button>
+			<button type="button" class="btn btn-defaul jsCancelCreate">Cancel event</button>
+		</center>	
+		<br />
+	
+	</form>	
+	
+	<br />
+						
+	{{/if}}
+	
+</template>			
