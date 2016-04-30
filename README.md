@@ -15,3 +15,5 @@ After pizza was ordered you need to calculate how many $ each of your co workers
 <li>When all event participants confirmed their order event status is changing to ordered. So, each user receives to his email list of items he ordered and total amount $ he should pay to event creator. 
 <li>Event creator receives same email as simple participants + event summary (list menu items he should order in “Local Restaurant”). After ordering event creator is able to change event status to delivering. 
 </ul>
+<h3>Link</h3>
+<a href="http://pizza-day.herokuapp.com/">http://pizza-day.herokuapp.com/</a>
