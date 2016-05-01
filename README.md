@@ -17,6 +17,6 @@ After pizza was ordered this app should summarize all payments and send it via e
 </ul>
 <h3>Link</h3>
 <a href="http://pizza-day.herokuapp.com/">http://pizza-day.herokuapp.com/</a>
-use Group creator account for adding your e-mail to the group:
-labby.director@gmail.com
-jssolutionslab
+<p>Use Group creator account for adding your e-mail to the group:
+<br>labby.director@gmail.com
+<br>jssolutionslab
