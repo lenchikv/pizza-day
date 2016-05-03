@@ -1,5 +1,8 @@
 <h2>Pizza Day<h2>
 
+<h3>Important</h3>
+After downloading and starting application you should first update meteor id for group creators. For this purposes log in as group creator and insert group creator's email into field for inserting new users so that corresponding meteor id will be inserted into special object CurrentUser.
+
 <h3>Introduction </h3>
 Every week your team orders pizza delivery. Usually there is up to 20 items (pizzas, juice etc.) per order and the main task of this application calculate how many money every participant has to pay.
 <h3>The Problems</h3> 
